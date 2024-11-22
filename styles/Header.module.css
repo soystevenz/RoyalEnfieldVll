@@ -1,0 +1,171 @@
+
+.navbar {
+  background-color: rgb(0, 0, 0);
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  overflow: hidden; /* hace que los elementos que sobrepasen el header no sobrepasen*/
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.flexContainer {
+  display: flex;
+  align-items: center; 
+  justify-content: space-between;
+  height: 4rem; /* Ajusta para permitir más espacio si el logo es más grande */
+  padding: 0; 
+}
+
+.headerSpacer {
+  height: 4rem; /* Debe ser igual a la altura del header */
+}
+
+.logo {
+  flex: 0 0 auto; /* Evitar que el logo ocupe más espacio*/
+  margin-right: auto; 
+}
+
+.logo a {
+  display: flex; /* Añadir flex para alinear correctamente el logo */
+  align-items: center;
+  justify-content: center;
+  max-width: 200px;
+  height: auto; /* Asegúrate de que la altura sea automática para evitar cortes */
+}
+
+.logoImage {
+  width: 210px; 
+  height: auto; 
+  display: block; 
+  margin: 0; 
+}
+
+
+.menuLinks {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: flex-end;
+  flex: 2;
+  font-weight: 600;
+}
+
+.menuLink {
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s, color 0.3s;
+  white-space: nowrap;
+}
+
+.menuLink:hover,
+.menuLink.activeLink {
+  color: #ff0000;
+}
+
+.virtualVisitButton {
+  background-color: #ff0000;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.6rem;
+  transition: background-color 0.3s, transform 0.3s;
+  white-space: nowrap;
+}
+
+.virtualVisitButton:hover {
+  background-color: #8b0000;
+  transform: scale(1.05);
+}
+
+.virtualVisitButtonMobile {
+  background-color: red;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s, transform 0.3s;
+  white-space: nowrap;
+  font-weight: 570;
+}
+
+.virtualVisitButtonMobile:hover {
+  background-color: darkred;
+  transform: scale(1.05);
+}
+
+.mobileMenu {
+  position: fixed;
+  top: 4rem;
+  left: 0;
+  right: 0;
+  background-color: rgb(0, 0, 0);
+  padding: 1rem;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  transform: translateY(-20px);
+  z-index: 9; /* Asegura que no cubra el footer */
+  pointer-events: none; /* Deshabilitar clics mientras está oculto */
+}
+
+.mobileMenuOpen {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto; /* Habilitar clics cuando el menú esté abierto */
+}
+
+.mobileMenuLink {
+  display: block;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.7rem;
+  transition: background-color 0.3s, color 0.3s;
+  font-weight: 570;
+}
+
+.mobileMenuLink:hover,
+.mobileMenuLink.activeLink {
+  color: rgb(255, 0, 0);
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .menuLinks {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .menuLinks {
+    display: none;
+  }
+
+  .mobileMenuButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    color: white;
+  }
+
+  .mobileMenu {
+    display: block;
+    position: fixed;
+    top: 4rem; /* Ajustado para estar justo debajo del header fijo */
+    left: 0;
+    right: 0;
+    background-color: rgb(0, 0, 0);
+    padding: 1rem;
+    z-index: 999; /* Un z-index menor que el del navbar */
+  }
+} 

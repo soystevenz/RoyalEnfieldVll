@@ -1,0 +1,176 @@
+.footer {
+  background-color: #dcd9d9;
+  color: #000000;
+  padding: 2rem;
+  text-align: left ;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+
+.sectionAdress{
+  cursor: pointer; /* Cambia el cursor al pasar sobre el título */
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.Address {
+  color: inherit; 
+  text-decoration: none; /* Para que no tenga subrayado */
+}
+
+.Address:hover {
+  color: #ff0000; /* Cambia a un color deseado al pasar el cursor */
+}
+
+.sectionTitle {
+  cursor: pointer; /* Cambia el cursor al pasar sobre el título */
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.sectionSubTitle {
+  cursor: pointer; /* Cambia el cursor al pasar sobre el título */
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+
+/* Nueva clase para la columna de Redes Sociales */
+.socialMediaColumn {
+  grid-column: span 1;
+}
+
+@media (min-width: 769px) {
+  .socialMediaColumn {
+    margin-left: 13rem; /* Ajusta el valor para mover la columna a la derecha en la versión de escritorio */
+  }
+}
+
+/* Estilos para pantallas móviles */
+@media (max-width: 768px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sectionTitleMedia {
+  cursor: pointer; /* Cambia el cursor al pasar sobre el título */
+  font-weight: bold;
+   margin-bottom: 0.5rem;
+}
+
+.socialMedia {
+  list-style: none;
+  padding: 0;
+}
+
+.socialMedia li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+}
+.socialLink svg {
+  margin-right: 8px; 
+}
+
+
+.socialLinkWhatsapp:hover {
+  color: #00ee5f;
+}
+
+.socialLinkFacebook:hover {
+  color: #1b57d8;
+}
+
+.socialLinkInstagram:hover {
+  color: #ee0a4f;
+}
+
+.socialLinkYoutube:hover {
+  color: #ff0000;
+}
+
+.footerBottom {
+  font-size: 0.875rem;
+}
+
+.phoneContainer {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.phoneIcon {
+  margin-right: 0.5rem;
+  color: #000000; /* Adjust color as desired */
+}
+
+/* Estilos para pantallas móviles */
+@media (max-width: 768px) {
+  .footerGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.motorcycles {
+  opacity: 1;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+.motorcycles li a:hover{
+  color: #ff0000;
+}
+
+.motorcyclesOpen {
+  opacity: 1;
+  max-height: 300px; /* Ajusta según el contenido */
+}
+
+.motorcyclesDesktop {
+  opacity: 1;
+  max-height: none;
+  overflow: visible;
+}
+
+.motorcyclesDesktop li a:hover{
+  color: #ff0000;
+}
+
+.sectionTitleWithIcon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sectionTitleWithIcon svg {
+  color: #000;
+  margin-left: 10px;
+}
+
+.sectionTitleContainer {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.chevronIcon {
+  margin-left: 9px;
+  margin-bottom: 7px;
+  color: #000;
+}

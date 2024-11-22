@@ -1,0 +1,213 @@
+.main {
+  padding: 0rem;
+  max-width: 100%;
+  margin: 0;
+}
+
+.fullWidthImage {
+  width: 100%;
+  height: 80vh; 
+  margin-left: -50vw;
+  margin-right: -50vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  overflow: hidden;
+}
+
+.fullWidthImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.textImageSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 0 2rem;
+}
+
+.sideImage {
+  width: 40%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.textContent {
+  flex: 1;
+  color: #ffffff;
+}
+
+.textContent h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.textContent p {
+  font-size: 1rem;
+  color: #ffffff;
+}
+
+.requestSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1c1c1c;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  color: #ffffff;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.requestText {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: left;
+  margin-right: auto;
+}
+
+.requestButton {
+  padding: 0.5rem 1.5rem;
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.requestButton:hover {
+  background-color: #8b0000;
+}
+
+.mainImageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainImageOverlay h1 {
+  color: white;
+  font-size: 4rem;
+  font-weight: 800;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.galleryItem {
+  height: 250px;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.galleryItem:hover {
+  transform: scale(1.05);
+}
+
+.galleryItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.videoSection {
+  width: 100%;
+  height: 80vh;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  padding: 0;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.specs {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+}
+
+.specs h3 {
+  font-size: x-large;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.specs ul {
+  list-style: none;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .mainImageOverlay h1 {
+      font-size: 2rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      padding: 0 1rem;
+  }
+
+  .fullWidthImage {
+      height: 50vh;
+  }
+
+  .textImageSection {
+      flex-direction: column;
+      padding: 1rem;
+  }
+
+  .sideImage {
+      width: 100%;
+      margin-bottom: 1rem;
+  }
+
+  .specs ul {
+      font-size: 0.9rem;
+  }
+
+  .requestSection {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+  }
+
+  .requestText {
+      font-size: 1.2rem;
+      text-align: center;
+      width: 100%;
+      margin-right: 0;
+  }
+
+  .requestButton {
+      width: 100%;
+  }
+}

@@ -1,0 +1,143 @@
+.main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start; /* Alinea el contenido a la derecha */
+    background-color: #151010;
+    padding: 2rem;
+    position: relative;
+}
+
+.closeButton {
+    position: absolute;
+    top: 1rem;
+    right: 2rem; /* Movido más a la derecha */
+    color: #ffffff;
+    font-size: 2.5rem; /* Tamaño de fuente aumentado */
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1; /* Ajusta la línea para centrar mejor el símbolo */
+    padding: 0; /* Elimina el padding para que el tamaño sea más preciso */
+}
+
+
+.title {
+    color: #ffffff;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    width: 100%;
+    max-width: 400px; /* Ajusta este valor para cambiar el ancho del formulario */
+    font-weight: 780;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 700px; /* Ajusta este valor para cambiar el ancho del formulario */
+}
+
+.row {
+    display: flex;
+    gap: 1rem;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.label {
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.input {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 1rem;
+    /* Puedes ajustar el ancho de los inputs aquí si lo deseas */
+    width: 100%;
+}
+
+.submitButton {
+    padding: 0.5rem 2rem; /* Ajusta el padding horizontal para hacer el botón menos ancho */
+    border: none;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+    align-self: flex-start; /* Alinea el botón a la izquierda */
+    /* Puedes ajustar el ancho del botón aquí */
+    /* width: 150px; */
+}
+
+.submitButton:hover {
+    background-color: #e0e0e0;
+}
+
+/* Ajusta el diseño para pantallas más pequeñas */
+@media (max-width: 600px) {
+    .main {
+        align-items: center; /* Centra el contenido en pantallas pequeñas */
+    }
+    
+    .row {
+        flex-direction: column;
+    }
+    
+    .title{
+        font-size: 1.6rem;
+    }
+
+    .label{
+        font-size: 1rem;
+    }
+
+    .closeButton{
+        font-size: 2.2rem;
+    }
+    .submitButton {
+        /* align-self: ; */ /* Hace que el botón ocupe todo el ancho en pantallas pequeñas */
+    }
+}
+
+/* Puedes ajustar estos valores para cambiar el espaciado general */
+/* 
+.main {
+    padding: 2rem;
+}
+
+.form {
+    gap: 1rem;
+}
+*/
+
+/* Puedes ajustar estos valores para cambiar los tamaños de fuente */
+/*
+.title {
+    font-size: 1.5rem;
+}
+
+.label {
+    font-size: 0.9rem;
+}
+
+.input, .submitButton {
+    font-size: 1rem;
+}
+*/

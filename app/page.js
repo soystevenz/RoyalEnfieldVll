@@ -1,101 +1,169 @@
-import Image from "next/image";
+"use client"
+import * as React from "react"
+import { useEffect, useState } from "react"
+import Head from 'next/head'
+import Link from 'next/link'
+import { Phone } from 'lucide-react'
+
+import Header from "../components/Header"
+import Footer from "../components/Footer"
+import ImageCarrusel from '../components/ImageCarousel'
+import WhatsAppButton from '@/components/WhatsAppButton'
+import GallerySection from "@/components/GallerySection"
+import './globals.css'
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+  return (
+    <div className="app">
+      <Head>
+        <title>Royal Enfield Villavicencio</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <Header />
+      <ImageCarrusel />
+      
+      {isMobile ? (
+        <section className="photo-section">
+          <h1>#ComparteTuRoyalEnfield</h1>
+          <div className="responsive-image-container">
+            <img 
+              src="/uploads/glr1.jpg" 
+              alt="Royal Enfield"
+              className="responsive-image"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <div className="image-overlay">
+              <h2>Únete a la Comunidad</h2>
+              <p>Comparte tus mejores momentos con tu Royal Enfield</p>
+              <Link href="/galeria">
+                <button className="overlay-button">
+                  Compartir
+                </button>
+              </Link>
+            </div>
+          </div>
+        </section>
+      ) : (
+        <GallerySection>
+          <div className="photo-grid">
+            <img src="/uploads/glr1.jpg" alt="Royal Enfield 1" />
+            <img src="/uploads/glr2.jpg" alt="Royal Enfield 2" />
+            <img src="/uploads/glr3.jpg" alt="Royal Enfield 3" />
+          </div>
+        </GallerySection>
+      )}
+
+      <div className="bg-[#1c1c1c] px-8 py-12 mt-9 mb-10">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div className="flex flex-col md:flex-row md:items-center gap-6 text-center md:text-left">
+            <div className="hidden md:block">
+              <Phone size={48} className="text-white" />
+            </div>
+            <div className="text-white">
+              <h2 className="text-2xl font-bold mb-2">
+                ¿Necesitas Ayuda para elegir tu próxima Royal Enfield?
+              </h2>
+              <p className="text-lg">
+                Dejanos tus datos y nosotros te contactaremos
+              </p>
+            </div>
+          </div>
+          
+          <Link href="/contactanos">
+            <button className="w-full md:w-auto bg-[#ff0000] hover:bg-[#8b0000] text-white px-8 py-4 rounded text-lg font-semibold transition-colors duration-200 ease-in-out">
+              Ingresa tus datos
+            </button>
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+      </div>
+      
+      <Footer />
+      <WhatsAppButton phoneNumber="573118113280" />
+    </div>
+  )
+}
+/* // Enhanced mobile carousel component
+const MobileImageCarousel = ({ images }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const handleImageChange = (newIndex) => {
+    if (isAnimating) return;
+    
+    setIsAnimating(true);
+    setCurrentIndex(newIndex);
+    
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 450);
+  };
+
+  const nextImage = () => {
+    handleImageChange((currentIndex + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    handleImageChange((currentIndex - 1 + images.length) % images.length);
+  };
+
+  return (
+    <div className="relative w-full">
+      <div className="w-full pb-[100%] relative">
+        <div className="absolute inset-0">
+          <img 
+            src={images[currentIndex]} 
+            alt={`Royal Enfield ${currentIndex + 1}`}
+            className="w-full h-full object-cover"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        </div>
+
+        <button 
+          onClick={prevImage}
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 z-30 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-colors"
+          aria-label="Previous image"
+          disabled={isAnimating}
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+          <ChevronLeft size={24} />
+        </button>
+        
+        <button 
+          onClick={nextImage}
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 z-30 bg-black bg-opacity-50 text-white p-2 rounded-full hover:bg-opacity-75 transition-colors"
+          aria-label="Next image"
+          disabled={isAnimating}
         >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          <ChevronRight size={24} />
+        </button>
+
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => handleImageChange(index)}
+              className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                index === currentIndex ? 'bg-white' : 'bg-white bg-opacity-50'
+              }`}
+              aria-label={`Go to image ${index + 1}`}
+              disabled={isAnimating}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
-}
+}; */
